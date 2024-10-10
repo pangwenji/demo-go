@@ -12,9 +12,7 @@ import (
 	"github.com/gogf/gf/v2/errors/gerror"
 )
 
-type (
-	sUser struct{}
-)
+type sUser struct{}
 
 func init() {
 	service.RegisterUser(New())

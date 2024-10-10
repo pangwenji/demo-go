@@ -72,12 +72,7 @@ func (dao *UserDao) Ctx(ctx context.Context) *gdb.Model {
 	return dao.DB().Model(dao.table).Safe().Ctx(ctx)
 }
 
-// Transaction wraps the transaction logic using function f.
-// It rollbacks the transaction and returns the error from function f if it returns non-nil error.
-// It commits the transaction and returns nil if function f returns nil.
-//
-// Note that, you should not Commit or Rollback the transaction in function f
-// as it is automatically handled by this function.
+
 func (dao *UserDao) Transaction(ctx context.Context, f func(ctx context.Context, tx gdb.TX) error) (err error) {
 	return dao.Ctx(ctx).Transaction(ctx, f)
 }
